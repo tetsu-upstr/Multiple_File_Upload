@@ -29,6 +29,11 @@
       _('status').innerHTML = Math.round(percent) + '% アップロード中です... お待ちください。'; 
     }
 
+    function completeHandler(event) {
+      _('status').innerHTML = event.target.responseText;
+      _('progressBar').value = 0;
+    }
+
   </script>
 </head>
 <body>
