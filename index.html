@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Progress Bar</title>
   <script>
+    function _(id){ return document.getElementById(id); } //「 _ 」を定義してgetElementByIdを省略する
+
     function uploadFiles() {
       var formdata = new FormData();
       var userfiles = document.getElementsByName('filegroup'); // input elements
+      // var ufiles = _('userfiles').files; // inputを一つにまとめる場合
       for (var i = 0; i < userfiles.length; i++) {
         var file = userfiles[i].files[0];
         if (file) {
@@ -40,6 +43,8 @@
 <body>
   <h2>複数ファイルアップロード Ajax + PHP</h2>
   <form id="upload_form" enctype="multipart/form-data" action="POST">
+    <!-- インプットを一つにまとめる書き方 -->
+    <!-- <input type="file" id="userfiles" multiple> <br><br> -->
     <input type="file" name="filegroup"> <br><br>
     <input type="file" name="filegroup"> <br><br>
     <input type="file" name="filegroup"> <br><br>
