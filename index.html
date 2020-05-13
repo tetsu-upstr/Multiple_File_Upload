@@ -3,8 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Progress Bar</title>
   <script>
+    function uploadFiles() {
+      var formdata = new FormData();
+      var userfiles = document.getElementsByName('filegroup'); // input elements
+      for (var i = 0; i < userfiles.length; i++) {
+        var file = userfiles[i].files[0];
+        if (file) {
+          formdata.append( 'file_' + i, file ); // file.name ( name / size / type )
+        }
+      }
+      formdata.append('username', 'Adam'); // append('key', 'value');
+      var ajax = new XMLHttpRequest();
+      ajax.upload.addEventListener('progress', progressHandler, false);
+      ajax.addEventListener('load', completeHandler, false);
+      ajax.open('POST', 'paser.php');
+      ajax.send(formdata);
+    }
 
   </script>
 </head>
@@ -14,6 +30,7 @@
     <input type="file" name="filegroup"> <br><br>
     <input type="file" name="filegroup"> <br><br>
     <input type="file" name="filegroup"> <br><br>
+    <input type="button" value="Upload Files" onclick="uploadFiles()">
     <progres id="progressBar" value="0" max="100" style="width: 300px;"></progres>
     <h3 id="status"></h3>
     <p id="loaded_n_total"></p>
