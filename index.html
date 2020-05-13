@@ -32,6 +32,7 @@
     function completeHandler(event) {
       _('status').innerHTML = event.target.responseText;
       _('progressBar').value = 0;
+      _('upload_form').reset(); // or target_input.value = ''; input要素をクリアする処理
     }
 
   </script>
