@@ -9,6 +9,6 @@
 
 ### 参考URL
 
-[youtube](https://www.youtube.com/watch?v=qoujtAnI4Fc&list=PL00952AC35D0A4701)
-[MDN progress](https://developer.mozilla.org/ja/docs/Web/HTML/Element/progress)
-[MDN FormData](https://developer.mozilla.org/ja/docs/Web/API/FormData)
+- [youtube](https://www.youtube.com/watch?v=qoujtAnI4Fc&list=PL00952AC35D0A4701)
+- [MDN progress](https://developer.mozilla.org/ja/docs/Web/HTML/Element/progress)
+- [MDN FormData](https://developer.mozilla.org/ja/docs/Web/API/FormData)

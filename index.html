@@ -22,6 +22,13 @@
       ajax.send(formdata);
     }
 
+    function progressHandler(event) {
+      _('loaded_n_total').innerHTML = 'Uploaded ' + event.loaded + ' bytes of ' + event.total;
+      var percent = (event.loaded / event.total) * 100;
+      _('progressBar').value = Math.round(percent);
+      _('status').innerHTML = Math.round(percent) + '% アップロード中です... お待ちください。'; 
+    }
+
   </script>
 </head>
 <body>
