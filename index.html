@@ -9,13 +9,9 @@
 
     function uploadFiles() {
       var formdata = new FormData();
-      var userfiles = document.getElementsByName('filegroup'); // input elements
-      // var ufiles = _('userfiles').files; // inputを一つにまとめる場合
-      for (var i = 0; i < userfiles.length; i++) {
-        var file = userfiles[i].files[0];
-        if (file) {
-          formdata.append( 'file_' + i, file ); // file.name ( name / size / type )
-        }
+      var ufiles = _('userfiles').files;
+      for (var i = 0; i < ufiles.length; i++) {
+          formdata.append( 'file_' + i, ufiles[i] ); // file.name ( name / size / type )
       }
       formdata.append('username', 'Adam'); // append('key', 'value');
       var ajax = new XMLHttpRequest();
@@ -43,11 +39,7 @@
 <body>
   <h2>複数ファイルアップロード Ajax + PHP</h2>
   <form id="upload_form" enctype="multipart/form-data" action="POST">
-    <!-- インプットを一つにまとめる書き方 -->
-    <!-- <input type="file" id="userfiles" multiple> <br><br> -->
-    <input type="file" name="filegroup"> <br><br>
-    <input type="file" name="filegroup"> <br><br>
-    <input type="file" name="filegroup"> <br><br>
+    <input type="file" id="userfiles" multiple> <br><br>
     <input type="button" value="Upload Files" onclick="uploadFiles()">
     <progres id="progressBar" value="0" max="100" style="width: 300px;"></progres>
     <h3 id="status"></h3>
