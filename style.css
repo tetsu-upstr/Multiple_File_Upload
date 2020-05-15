@@ -1,0 +1,42 @@
+.dropzone {
+  border: 2px dashed #555;
+  margin-top: 5px;
+  width: 246px;
+  height: 100px;
+  margin-bottom: 10px;
+  position: relative;
+  font-size: 12px;
+}
+
+.dragging {
+color: rgba(0,0,0, .4);
+background-color: rgba(0,0,255, .1);
+border-color: rgba(0,0,255, .3);
+}
+
+.dragging:after {
+content: "ここにドロップできます";
+text-align: center;
+position: absolute;
+left: 0;
+width: 100%;
+line-height: 100px;
+}
+
+.dragenter {
+border-color: rgba(255,0,0, .3);
+background-color: rgba(255,0,0, .1);
+}
+
+/* 
+* テストdivイメージ 
+* cursor: moveでドラッグ可をわかりやすく伝える
+*/
+#draggable {
+  cursor: move;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  color: #fff;
+  background-color: rgb(160, 213, 167);
+}

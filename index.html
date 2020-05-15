@@ -3,47 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Progress Bar</title>
-  <script>
-    function _(id){ return document.getElementById(id); } //「 _ 」を定義してgetElementByIdを省略する
-
-    function uploadFiles() {
-      var formdata = new FormData();
-      var ufiles = _('userfiles').files;
-      for (var i = 0; i < ufiles.length; i++) {
-          formdata.append( 'file_' + i, ufiles[i] ); // file.name ( name / size / type )
-      }
-      formdata.append('username', 'Adam'); // append('key', 'value');
-      var ajax = new XMLHttpRequest();
-      ajax.upload.addEventListener('progress', progressHandler, false);
-      ajax.addEventListener('load', completeHandler, false);
-      ajax.open('POST', 'parser.php');
-      ajax.send(formdata);
-    }
-
-    function progressHandler(event) {
-      _('loaded_n_total').innerHTML = 'Uploaded ' + event.loaded + ' bytes of ' + event.total;
-      var percent = (event.loaded / event.total) * 100;
-      _('progressBar').value = Math.round(percent);
-      _('status').innerHTML = Math.round(percent) + '% アップロード中です... お待ちください。'; 
-    }
-
-    function completeHandler(event) {
-      _('status').innerHTML = event.target.responseText;
-      _('progressBar').value = 0;
-      _('upload_form').reset(); // or target_input.value = ''; input要素をクリアする処理
-    }
-
-  </script>
 </head>
 <body>
   <h2>複数ファイルアップロード Ajax + PHP</h2>
+
+  <p>ドラッグ＆ドロップでもファイルをアップロードできます</p>
+  <div id="draggable" draggable="true">test</div>
+  <form action="" enctype="multipart/form-data" method="POST" >
+    <div id="dropzone" class="dropzone"></div>
+  </form>
+
   <form id="upload_form" enctype="multipart/form-data" action="POST">
     <input type="file" id="userfiles" multiple> <br><br>
-    <input type="button" value="Upload Files" onclick="uploadFiles()">
+    <input type="button" id="upload_btn" value="Upload Files">
     <progress id="progressBar" value="0" max="100" style="width: 300px;"></progress>
     <h3 id="status"></h3>
     <p id="loaded_n_total"></p>
   </form>
+
+  <script src="main.js"></script>
 </body>
 </html>
