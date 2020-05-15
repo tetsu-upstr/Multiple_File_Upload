@@ -73,7 +73,6 @@ _('dropzone').addEventListener('drop', function(event){
   ajax.addEventListener('load', completeHandler, false);
   ajax.open('POST', 'parser.php');
   ajax.send(formdata);
-  var text = event.dataTransfer.getData('text');
   this.textContent = files[0].name + 'がドロップされました';
 });
 
